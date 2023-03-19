@@ -1,5 +1,7 @@
 #! /bin/sh
 
+export PATH="$PATH:$HOME/.cargo/bin"
+
 cd $(dirname $0)
 if ! which wasm-pack > /dev/null 2>&1
 then
