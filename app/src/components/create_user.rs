@@ -44,7 +44,7 @@ pub struct CreateUserModel {
     last_name: String,
     #[validate(custom(
         function = "empty_or_long",
-        message = "Password should be longer than 8 characters (or left empty)"
+        message = "Password should be longer than 6 characters (or left empty)"
     ))]
     password: String,
     #[validate(must_match(other = "password", message = "Passwords must match"))]
@@ -52,7 +52,7 @@ pub struct CreateUserModel {
 }
 
 fn empty_or_long(value: &str) -> Result<(), validator::ValidationError> {
-    if value.is_empty() || value.len() >= 8 {
+    if value.is_empty() || value.len() >= 6 {
         Ok(())
     } else {
         Err(validator::ValidationError::new(""))
