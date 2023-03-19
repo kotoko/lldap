@@ -197,12 +197,6 @@ impl Component for LoginForm {
                       onclick=self.common.callback(|e: MouseEvent| {e.prevent_default(); Msg::Submit})>
                       {"Login"}
                     </button>
-                    <NavButton
-                      classes="btn-link btn"
-                      disabled=self.common.is_task_running()
-                      route=AppRoute::StartResetPassword>
-                      {"Forgot your password?"}
-                    </NavButton>
                   </div>
                   <div class="form-group">
                   { if let Some(e) = &self.common.error {
